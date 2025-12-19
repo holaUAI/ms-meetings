@@ -1,22 +1,15 @@
 import admin from 'firebase-admin';
-import path from 'path';
 import fs from 'fs';
-import { fileURLToPath } from 'url';
-import dotenv from 'dotenv';
-dotenv.config();
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const serviceAccountPath = process.env.RENDER === 'true'
+    ? '/etc/secrets/serviceAccountKey.json'
+    : './src/config/firebase/serviceAccountKey.json';
 
-const serviceAccountPath = path.resolve(__dirname, 'serviceAccountKey.json');
-const serviceAccount = JSON.parse(fs.readFileSync(serviceAccountPath, 'utf-8'));
+const serviceAccount = JSON.parse(fs.readFileSync(serviceAccountPath, 'utf8'));
 
-if (!admin.apps.length) {
-    admin.initializeApp({
-        credential: admin.credential.cert(serviceAccount)
-    });
-    console.log('✅ Firebase Admin inicializado');
-}
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
 
 const db = admin.firestore();
 

@@ -10,17 +10,26 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
+    "body-parser": "^2.2.0",
     "cors": "^2.8.5",
-    "dotenv": "^17.0.1",
+    "dotenv": "^17.2.1",
     "express": "^5.1.0",
-    "firebase-admin": "^13.4.0",
+    "firebase-admin": "^13.5.0",
     "joi": "^17.13.3",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.1"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
     "nodemon": "^3.1.10"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/holaUAI/ms-meetings.git"
+  },
+  "bugs": {
+    "url": "https://github.com/holaUAI/ms-meetings/issues"
+  },
+  "homepage": "https://github.com/holaUAI/ms-meetings#readme",
+  "description": ""
 }
